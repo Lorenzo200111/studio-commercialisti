@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Studio professionale di commercialisti, revisori contabili e consulenti del lavoro a Montevarchi. Consulenza tributaria, societaria, del lavoro, contabile e gestionale." />
+  <title>Studio Professionale | Commercialisti e Consulenti del Lavoro</title>
+
+  <style>
+    :root {
+      --navy: #102033;
+      --navy-2: #172b43;
+      --blue: #24476f;
+      --gold: #b89a5e;
+      --gold-soft: #e8dec7;
+      --cream: #f7f3ec;
+      --paper: #ffffff;
+      --ink: #1d2834;
+      --muted: #687383;
+      --line: #e5dfd4;
+      --shadow: 0 24px 70px rgba(16, 32, 51, 0.12);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 44px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: rgba(16, 32, 51, 0.96);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .brand-name {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      line-height: 1.1;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-subtitle {
+      display: block;
+      color: #d8d0c2;
+      font-size: 12px;
+      margin-top: 3px;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: #e9eef5;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      opacity: 0.92;
+      transition: opacity 0.18s ease, color 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--gold-soft);
+    }
+
+    .hero {
+      background:
+        linear-gradient(rgba(16, 32, 51, 0.86), rgba(16, 32, 51, 0.88)),
+        radial-gradient(circle at 80% 10%, rgba(184, 154, 94, 0.32), transparent 35%),
+        linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: #fff;
+      padding: 96px 0 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -12% -48% -12%;
+      height: 360px;
+      background: rgba(255, 255, 255, 0.045);
+      transform: rotate(-4deg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 50px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--gold-soft);
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 44px;
+      height: 1px;
+      background: var(--gold);
+      display: inline-block;
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    h1 {
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -2.2px;
+      margin: 0 0 22px;
+      max-width: 860px;
+    }
+
+    .hero-lead {
+      max-width: 740px;
+      font-size: 20px;
+      color: #e6edf5;
+      margin: 0 0 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      min-height: 48px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 750;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #142033;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      color: #fff;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.075);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-card h2 {
+      margin: 0 0 18px;
+      font-size: 28px;
+    }
+
+    .hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-list li {
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      color: #e8eef6;
+    }
+
+    .hero-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .hero-list strong {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      margin-bottom: 4px;
+    }
+
+    .intro-strip {
+      margin-top: -38px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .intro-item {
+      padding: 28px;
+      border-right: 1px solid var(--line);
+    }
+
+    .intro-item:last-child {
+      border-right: 0;
+    }
+
+    .intro-item span {
+      display: block;
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .intro-item strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      color: var(--navy);
+      line-height: 1.25;
+    }
+
+    .section {
+      padding: 78px 0;
+    }
+
+    .section-title {
+      margin-bottom: 34px;
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 42px;
+      align-items: end;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(34px, 4.5vw, 52px);
+      line-height: 1.08;
+      color: var(--navy);
+      letter-spacing: -1.1px;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: 0 18px 42px rgba(16, 32, 51, 0.06);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .about-note {
+      background: var(--navy);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 34px;
+      min-height: 100%;
+    }
+
+    .about-note h3 {
+      margin: 0 0 14px;
+      font-size: 30px;
+    }
+
+    .about-note p {
+      margin: 0;
+      color: #e7edf5;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 14px 34px rgba(16, 32, 51, 0.055);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(184, 154, 94, 0.65);
+      box-shadow: 0 22px 54px rgba(16, 32, 51, 0.10);
+    }
+
+    .service-number {
+      display: inline-flex;
+      width: 38px;
+      height: 38px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #f2ead9;
+      color: var(--navy);
+      font-weight: 850;
+      margin-bottom: 16px;
+    }
+
+    .service-card h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 23px;
+      line-height: 1.16;
+    }
+
+    .service-card ul {
+      padding-left: 19px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .service-card li {
+      margin: 6px 0;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .person {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 25px;
+    }
+
+    .person .role-label {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: 850;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .person h3 {
+      margin: 0 0 8px;
+      font-size: 24px;
+      color: var(--navy);
+    }
+
+    .person p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .method-step {
+      border-left: 3px solid var(--gold);
+      background: rgba(255, 255, 255, 0.72);
+      padding: 22px;
+      border-radius: 0 16px 16px 0;
+    }
+
+    .method-step strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--navy);
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .method-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .contact-section {
+      background: var(--navy);
+      color: #fff;
+      padding: 74px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .contact-section h2 {
+      margin: 0 0 18px;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -1px;
+    }
+
+    .contact-section p {
+      color: #e2e8f0;
+      margin: 0 0 28px;
+    }
+
+    .contact-box {
+      background: rgba(255, 255, 255, 0.075);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .contact-row {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .contact-row:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .contact-row strong {
+      display: block;
+      color: var(--gold-soft);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .contact-row a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 750;
+    }
+
+    .contact-row span {
+      color: #e2e8f0;
+      font-size: 18px;
+    }
+
+    .footer {
+      background: #0a1624;
+      color: #b8c2cf;
+      padding: 28px 0;
+      font-size: 14px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: #d8d0c2;
+      text-decoration: none;
+      margin-left: 16px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-title,
+      .about,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-grid,
+      .team-grid,
+      .method-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .intro-item:last-child {
+        border-bottom: 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 30px, 1160px);
+      }
+
+      .hero {
+        padding: 72px 0 52px;
+      }
+
+      .service-grid,
+      .team-grid,
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .panel,
+      .about-note,
+      .service-card,
+      .person,
+      .contact-box {
+        padding: 24px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      h1 {
+        letter-spacing: -1.4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sostituire "Studio Santopietro Signorini" con la denominazione ufficiale dello Studio, se diversa. -->
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Torna alla home">
+        <span>
+          <span class="brand-name">Studio Santopietro Signorini</span>
+          <span class="brand-subtitle">Commercialisti · Revisori · Consulenti del lavoro</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navigazione principale">
+        <a href="#studio">Lo Studio</a>
+        <a href="#attivita">Attività</a>
+        <a href="#professionisti">Professionisti</a>
+        <a href="#metodo">Metodo</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Studio professionale a Montevarchi</div>
+          <h1>Consulenza integrata per imprese, professionisti e patrimoni familiari.</h1>
+          <p class="hero-lead">
+            Lo Studio affianca il Cliente nei principali ambiti economico-giuridici,
+            con un approccio multidisciplinare fondato su competenza, riservatezza
+            e continuità del rapporto professionale.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contatti">Richiedi un appuntamento</a>
+            <a class="btn btn-secondary" href="#attivita">Scopri le attività</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Informazioni principali">
+          <h2>Una struttura professionale completa</h2>
+          <ul class="hero-list">
+            <li>
+              <strong>Esperienza</strong>
+              Attività avviata a Montevarchi negli anni ’80.
+            </li>
+            <li>
+              <strong>Approccio</strong>
+              Consulenza tributaria, societaria, del lavoro, contabile e gestionale.
+            </li>
+            <li>
+              <strong>Collaborazioni</strong>
+              Rete di collaborazioni con studi legali per una consulenza coordinata.
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="intro-strip" aria-label="Punti di forza">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-item">
+            <span>01</span>
+            <strong>Consulenza su misura</strong>
+          </div>
+          <div class="intro-item">
+            <span>02</span>
+            <strong>Competenze multidisciplinari</strong>
+          </div>
+          <div class="intro-item">
+            <span>03</span>
+            <strong>Riservatezza e continuità</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="studio">
+      <div class="container">
+        <div class="section-title">
+          <h2>Lo Studio</h2>
+          <p>
+            Una realtà professionale radicata nel territorio, orientata a offrire
+            risposte efficaci e aggiornate alle esigenze di imprese, enti e privati.
+          </p>
+        </div>
+
+        <div class="about">
+          <div class="about-note">
+            <h3>Dagli anni ’80 al servizio del Cliente</h3>
+            <p>
+              Lo Studio nasce a Montevarchi e si sviluppa nel tempo come struttura
+              di consulenza integrata, capace di assistere il Cliente nei principali
+              ambiti economico-giuridici.
+            </p>
+          </div>
+
+          <div class="panel">
+            <p>
+              L’obiettivo dello Studio è offrire un supporto professionale efficace,
+              aggiornato e personalizzato, grazie alle competenze specifiche di ciascun
+              professionista e a un costante scambio di esperienze sulle singole attività.
+            </p>
+            <p>
+              Il rapporto con il Cliente è fondato su qualità del servizio,
+              riservatezza, competenza e attenzione alle esigenze concrete, con
+              particolare riguardo all’evoluzione del mercato e del quadro normativo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="attivita">
+      <div class="container">
+        <div class="section-title">
+          <h2>Aree di attività</h2>
+          <p>
+            Lo Studio opera nei principali settori della consulenza aziendale,
+            fiscale, societaria, del lavoro e patrimoniale.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="service-number">01</span>
+            <h3>Consulenza tributaria</h3>
+            <ul>
+              <li>Consulenza tributaria e pianificazione fiscale</li>
+              <li>Due diligence fiscale</li>
+              <li>Contenzioso tributario</li>
+              <li>Crediti tributari</li>
+              <li>Dichiarazioni fiscali e comunicazioni telematiche</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">02</span>
+            <h3>Consulenza societaria e contrattuale</h3>
+            <ul>
+              <li>Consulenza societaria</li>
+              <li>Assistenza contrattuale</li>
+              <li>Procedure concorsuali</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">03</span>
+            <h3>Consulenza del lavoro</h3>
+            <ul>
+              <li>Elaborazione paghe</li>
+              <li>Consulenza contrattuale del lavoro</li>
+              <li>Adempimenti giuslavoristici</li>
+              <li>Gestione dei rapporti di lavoro</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">04</span>
+            <h3>Consulenza amministrativo-contabile</h3>
+            <ul>
+              <li>Servizi di contabilità</li>
+              <li>Due diligence contabile</li>
+              <li>Bilancio di esercizio</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">05</span>
+            <h3>Consulenza gestionale</h3>
+            <ul>
+              <li>Modelli di organizzazione ex D.Lgs. 231/2001</li>
+              <li>Analisi di bilancio e controllo di gestione</li>
+              <li>Business plan e budget</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">06</span>
+            <h3>Family consulting</h3>
+            <ul>
+              <li>Consulenza patrimoniale</li>
+              <li>Successioni, donazioni e divisioni</li>
+              <li>Passaggio generazionale</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">07</span>
+            <h3>Revisione legale dei conti</h3>
+            <ul>
+              <li>Revisione di bilanci di società private</li>
+              <li>Revisione di bilanci di enti pubblici</li>
+              <li>Revisione di bilanci di sostenibilità</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">08</span>
+            <h3>Operazioni straordinarie</h3>
+            <ul>
+              <li>Valutazione d’azienda</li>
+              <li>Conferimenti, trasformazioni, fusioni e scissioni</li>
+              <li>Cessione d’azienda</li>
+              <li>Piani di risanamento e riorganizzazione aziendale</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">09</span>
+            <h3>Assistenza integrata</h3>
+            <ul>
+              <li>Coordinamento tra competenze fiscali, contabili e del lavoro</li>
+              <li>Collaborazioni con studi legali</li>
+              <li>Supporto continuativo al Cliente</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="professionisti">
+      <div class="container">
+        <div class="section-title">
+          <h2>Professionisti</h2>
+          <p>
+            Un team composto da professionisti con competenze complementari,
+            affiancato da una struttura amministrativa e contabile dedicata.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <article class="person">
+            <span class="role-label">Partner</span>
+            <h3>Patrizio Santopietro</h3>
+            <p>Dottore Commercialista e Revisore contabile.</p>
+          </article>
+
+          <article class="person">
+            <span class="role-label">Partner</span>
+            <h3>Silvia Signorini</h3>
+            <p>Area amministrativo-contabile e ragioneria.</p>
+          </article>
+
+          <article class="person">
+            <span class="role-label">Partner</span>
+            <h3>Paolo Signorini</h3>
+            <p>Consulente del lavoro.</p>
+          </article>
+
+          <article class="person">
+            <span class="role-label">Associate</span>
+            <h3>Laura Valoriani</h3>
+            <p>Dottore Commercialista e Revisore contabile.</p>
+          </article>
+
+          <article class="person">
+            <span class="role-label">Associate</span>
+            <h3>Bianca Perrin</h3>
+            <p>Dottore Commercialista e Revisore contabile.</p>
+          </article>
+
+          <article class="person">
+            <span class="role-label">Staff</span>
+            <h3>Segreteria e contabilità</h3>
+            <p>Tre figure dedicate al supporto operativo, amministrativo e contabile.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="metodo">
+      <div class="container">
+        <div class="section-title">
+          <h2>Metodo di lavoro</h2>
+          <p>
+            Un percorso professionale costruito sul confronto continuo,
+            sull’aggiornamento e sulla personalizzazione della consulenza.
+          </p>
+        </div>
+
+        <div class="method-grid">
+          <div class="method-step">
+            <strong>Ascolto</strong>
+            <p>Analisi delle esigenze del Cliente e del contesto operativo.</p>
+          </div>
+          <div class="method-step">
+            <strong>Valutazione</strong>
+            <p>Inquadramento fiscale, societario, contabile e giuslavoristico.</p>
+          </div>
+          <div class="method-step">
+            <strong>Consulenza</strong>
+            <p>Definizione di soluzioni coerenti con obiettivi e vincoli.</p>
+          </div>
+          <div class="method-step">
+            <strong>Continuità</strong>
+            <p>Supporto nel tempo e aggiornamento rispetto all’evoluzione normativa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contatti">
+      <div class="container contact-grid">
+        <div>
+          <h2>Contatti</h2>
+          <p>
+            Per informazioni o per fissare un appuntamento è possibile contattare
+            telefonicamente lo Studio negli orari di apertura.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:+39055982924">Chiama lo Studio</a>
+            <a class="btn btn-secondary" href="#attivita">Consulta le attività</a>
+          </div>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-row">
+            <strong>Telefono</strong>
+            <a href="tel:+39055982924">055 982924</a>
+          </div>
+
+          <div class="contact-row">
+            <strong>Orario</strong>
+            <span>8.30 – 19.30</span>
+          </div>
+
+          <div class="contact-row">
+            <strong>Sede</strong>
+            <span>Montevarchi</span>
+          </div>
+
+          <div class="contact-row">
+            <strong>Email</strong>
+            <span>Da inserire</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Studio Santopietro Signorini. Tutti i diritti riservati.</span>
+      <span>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Note legali</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
